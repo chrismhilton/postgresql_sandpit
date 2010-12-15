@@ -1,7 +1,24 @@
 # Schema Helper module containing methods used to create, load and access PostgreSQL schemas
 # 
 # The following line is required in the ApplicationController in order to use the module in controller classes:
-# include SchemaHelper 
+# include SchemaHelper
+#
+# The migrations intended for the subdomain schemas have been altered to include subdomain schema iterations
+# so that the migrations are performed against each subdomain schema.
+#
+# A rake task 'rake db:template_setup' has been created which
+# (1) creates the database
+# (2) creates a 'template' schema 
+# (3) performs a migration to create tables in the 'public' and 'template' schemas
+# (4) loads test data into the 'public' and 'template' schemas
+#
+# The create_and_load_subdomain_schema method relies upon the existence of a schema_subdomain.rb file;
+# this file can be updated after adding and running further migrations by:
+# (1) uncomment the schema_search_path line in the database.yml file
+# (2) run the rake task 'rake db:schema:dump' which updates the schema.rb file content
+# (3) copy the latest subdomain schema definitions out of the schema.rb file and into the schema_subdomain.rb file
+#     making sure that the version timestamp is updated and the create_table commands exclude ":force => true"
+# (4) comment out the schema_search_path line in the database.yml file
 #
 module SchemaHelper
   

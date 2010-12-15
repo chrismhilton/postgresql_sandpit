@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20101208171916) do
     t.datetime "updated_at"
   end
 
+  add_index "clients", ["subdomain"], :name => "index_clients_on_subdomain"
+
   create_table "users", :force => true do |t|
     t.integer  "client_id"
     t.string   "name"

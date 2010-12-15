@@ -15,6 +15,10 @@ development:
   pool: 5
   username: postgres
   password: september
+  # Set the schema_search_path in order to use the rake task 'rake db:schema:dump' to update the schema.rb file content
+  # and to include the table/index definitions from the template subdomain schema.
+  # NB: the user option is required in order for the task to pick up the template subdomain schema indexes.
+  #schema_search_path: "\"$user\",public,template"
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

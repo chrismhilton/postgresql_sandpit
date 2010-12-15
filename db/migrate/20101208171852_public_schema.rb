@@ -5,7 +5,9 @@ class PublicSchema < ActiveRecord::Migration
       t.string :name
       t.string :subdomain
       t.timestamps
-    end
+    end  
+
+    add_index "clients", "subdomain"
     
     create_table :users do |t|
       t.integer :client_id
