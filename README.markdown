@@ -33,7 +33,7 @@ The schema_subdomain.rb file contains the structure of the subdomain schemas and
 by the SchemaHelper create_and_load_subdomain_schema method to load the schema objects.
 The use of the schema_subdomain.rb file to load the 'subdomain' schemas replicates the 
 recommended approach for populating new databases from the schema.rb file using the rake task
-'rake db:load' rather than running multiple migrations. 
+'rake db:schema:load' rather than running multiple migrations. 
 
 One point to note is that the schema.rb file cannot express database specific items such as foreign key constraints, triggers or stored procedures. While in a migration you can execute custom SQL statements, the schema dumper cannot reconstitute those statements from the database. If you are using features like this then you should set the schema format to :sql.
 
