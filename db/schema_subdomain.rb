@@ -7,7 +7,7 @@
 #
 ActiveRecord::Schema.define(:version => 20101208171916) do
 
-  create_table "activities", :force => true do |t|
+  create_table "activities" do |t|
     t.integer  "user_id"
     t.string   "subject"
     t.string   "description"
@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20101208171916) do
 
   add_index "activities", ["user_id"], :name => "index_activities_on_user_id"
 
-  create_table "activity_notes", :force => true do |t|
+  create_table "activity_notes" do |t|
     t.integer  "activity_id"
     t.text     "note"
     t.datetime "created_at"
